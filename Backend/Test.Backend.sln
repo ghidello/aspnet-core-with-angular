@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32002.261
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Test.Backend", "src\Test.Backend\Test.Backend.csproj", "{99DA6812-6529-49F2-B5C9-B9BB74B40B2E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1A958F1C-FF68-4842-A2AC-792DE8B1B813}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{74276842-C2C9-425D-8D1C-9AC8DCC54CD2}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99DA6812-6529-49F2-B5C9-B9BB74B40B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99DA6812-6529-49F2-B5C9-B9BB74B40B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99DA6812-6529-49F2-B5C9-B9BB74B40B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99DA6812-6529-49F2-B5C9-B9BB74B40B2E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{99DA6812-6529-49F2-B5C9-B9BB74B40B2E} = {1A958F1C-FF68-4842-A2AC-792DE8B1B813}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6B5EDAD-8A52-4AE9-89D7-7F6BFA3E0C09}
+	EndGlobalSection
+EndGlobal
