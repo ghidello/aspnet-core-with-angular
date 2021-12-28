@@ -5,3 +5,4 @@ bin/
 obj/
 
 Backend/src/Test.Backend/wwwroot/
+Publish/
