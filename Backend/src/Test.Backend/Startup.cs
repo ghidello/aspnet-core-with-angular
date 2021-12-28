@@ -1,7 +1,8 @@
-using System.Text.Json;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Server.IISIntegration;
 using Microsoft.Extensions.Configuration;
@@ -55,7 +56,10 @@ namespace Test.Backend
 
             app.UseHttpsRedirection();
 
-            app.UseStaticFiles();
+            // exclude the index.html file from being served as a static file
+            app.UseWhen(c => !c.Request.Path.StartsWithSegments("/index.html"), appBuilder =>
+                appBuilder.UseStaticFiles()
+            );
 
             app.UseRouting();
 
@@ -64,6 +68,15 @@ namespace Test.Backend
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
+
+                // 404 for not matched apis
+                endpoints.Map("api/{**slug}", context => {
+                    context.Response.StatusCode = StatusCodes.Status404NotFound;
+                    return Task.CompletedTask;
+                });
+
+                // redirect all other requests to the index page
+                endpoints.MapFallbackToController("Index", "Home");
             });
         }
     }

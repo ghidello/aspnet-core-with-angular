@@ -9,14 +9,9 @@ namespace Test.Backend.Controllers
     {
         public IActionResult Index()
         {
-            return View();
+            return File("/index.html", "text/html");
         }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
+        
         [AllowAnonymous]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
