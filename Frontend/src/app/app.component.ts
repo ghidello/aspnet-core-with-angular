@@ -1,10 +1,22 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'test-frontend';
+export class AppComponent {  
+  public user?: User;
+
+  constructor(http: HttpClient) {
+    http.get<User>('/api/user').subscribe({
+      next: (result) => this.user = result, 
+      error: (e) => alert(e)
+    });
+  }
+}
+
+interface User {
+  identityName: string;
 }
