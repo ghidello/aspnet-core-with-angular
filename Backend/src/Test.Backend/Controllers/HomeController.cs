@@ -15,7 +15,7 @@ namespace Test.Backend.Controllers
         // -----------------------------------------------------------------------------------------------------------------
         public IActionResult Index()
         {
-            HttpContext.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; style-src 'self' 'unsafe-inline'");
+            HttpContext.Response.Headers.Add("Content-Security-Policy", "default-src 'self'; style-src 'self' 'unsafe-inline'; connect-src *");
 
             return File("/index.html", "text/html");
         }

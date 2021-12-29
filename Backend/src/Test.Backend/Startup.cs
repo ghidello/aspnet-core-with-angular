@@ -38,6 +38,17 @@ namespace Test.Backend
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Test.Backend", Version = "v1" });
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowEverything", builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod()
+                        .AllowCredentials();
+                });
+            });
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -61,7 +72,13 @@ namespace Test.Backend
                 appBuilder.UseStaticFiles()
             );
 
+
             app.UseRouting();
+
+            if (env.IsDevelopment())
+            {
+                app.UseCors("AllowEverything");
+            }
 
             app.UseAuthorization();
 

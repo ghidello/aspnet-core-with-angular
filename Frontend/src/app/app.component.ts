@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(http: HttpClient) {
     http.get<User>('/api/user').subscribe({
       next: (result) => this.user = result, 
-      error: (e) => alert(e)
+      error: (e) => alert(e.message)
     });
   }
 }
