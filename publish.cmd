@@ -3,7 +3,7 @@
 pushd %~dp0
 
 pushd Frontend
-call npm run build
+call npm run publish
 popd
 
 if exist Publish rd /q /s Publish
